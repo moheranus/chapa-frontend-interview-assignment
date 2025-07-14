@@ -11,7 +11,7 @@ Styling: Tailwind CSS.
 
 Setup
 
-Clone the repository:git clone https://github.com/your-username/Chapa-frontend-interview-assignment.git
+Clone the repository:git clone https://github.com/moheranus/Chapa-frontend-interview-assignment.git
 
 
 Install dependencies:cd Chapa-frontend-interview-assignment
