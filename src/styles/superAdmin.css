@@ -1,0 +1,118 @@
+.superadmin-container {
+  padding: 1rem;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  /* border: 2px solid red; */
+}
+
+.superadmin-header {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  /* margin-left: 1.2rem; */
+}
+
+.section-header {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.stats-container {
+  margin-bottom: 1rem;
+}
+
+.stats-content {
+  line-height: 1.5;
+}
+
+.admin-form,
+.user-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-input,
+.form-select {
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.add-admin-button {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-admin-button {
+  background-color: #dc2626;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.add-user-button {
+  background-color: #22c55e;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.add-user-button:hover{
+    background-color: #179746;
+}
+
+.add-admin-button:disabled,
+.remove-admin-button:disabled,
+.add-user-button:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc2626;
+  margin-top: 0.5rem;
+}
+
+.success-message {
+  color: #22c55e;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .superadmin-container {
+    padding: 1rem;
+  }
+
+  .admin-form,
+  .user-form {
+    flex-direction: column;
+  }
+
+  .form-input,
+  .form-select {
+    width: 100%;
+    min-width: unset;
+  }
+}
+.form-wrapper{
+    width: 90%;
+
+}
+.form-wrapper .super-input{
+    margin-bottom: 10px;
+    width: 95%;
+}
+.form-wrapper .super-inputs{
+    margin-bottom: 10px;
+    width: 97%;
+}

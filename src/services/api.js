@@ -9,6 +9,8 @@ const transactions = [
   { id: 1, userId: 1, amount: 100, date: '2025-07-10', status: 'Completed' },
   { id: 2, userId: 1, amount: 50, date: '2025-07-09', status: 'Pending' },
   { id: 3, userId: 2, amount: 200, date: '2025-07-08', status: 'Completed' },
+  {id: 4, userId: 1, amount: 1000, date: '2025-06-13', status: 'Completed'},
+  {id: 5, userId: 2, amount: 1450, date: '2025-06-13', status: 'Pending'},
 ];
 
 export const login = (username, password) => new Promise((resolve, reject) => {
@@ -86,6 +88,10 @@ export const getUsers = () => new Promise((resolve) => {
   setTimeout(() => resolve([
     { id: 1, username: 'user1', active: true },
     { id: 2, username: 'user2', active: false },
+    { id: 3, username: 'user3', active: true },
+    { id: 4, username: 'user4', active: false },
+    { id: 5, username: 'user5', active: true },
+
   ]), 1000);
 });
 

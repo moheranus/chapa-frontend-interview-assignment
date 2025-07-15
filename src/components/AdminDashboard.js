@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import * as api from '../services/api';
+import '../styles/admindashboard.css';
 
-const AdminDashboard = () => {
+const AdminDashboard = ({ currentView }) => {
   const [users, setUsers] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -20,55 +21,69 @@ const AdminDashboard = () => {
     setLoading(false);
   };
 
+  if (currentView && currentView !== 'User-List' && currentView !== 'Payment-Summary') return null;
+
   return (
-    <div className="p-8">
-      <h2 className="text-2xl mb-4">Admin Dashboard</h2>
-      <h3 className="text-xl mb-2">User List</h3>
-      <table className="w-full border-collapse mb-4">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border p-2">Username</th>
-            <th className="border p-2">Status</th>
-            <th className="border p-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map(user => (
-            <tr key={user.id}>
-              <td className="border p-2">{user.username}</td>
-              <td className="border p-2">{user.active ? 'Active' : 'Inactive'}</td>
-              <td className="border p-2">
-                <button
-                  onClick={() => handleToggleStatus(user.id, user.active)}
-                  className={`p-2 rounded ${user.active ? 'bg-red-500' : 'bg-green-500'} text-white`}
-                  disabled={loading}
-                >
-                  {user.active ? 'Deactivate' : 'Activate'}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <h3 className="text-xl mb-2">Payment Summary</h3>
-      <table className="w-full border-collapse">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border p-2">Username</th>
-            <th className="border p-2">Total Amount</th>
-            <th className="border p-2">Transaction Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          {paymentSummary.map(summary => (
-            <tr key={summary.username}>
-              <td className="border p-2">{summary.username}</td>
-              <td className="border p-2">${summary.totalAmount}</td>
-              <td className="border p-2">{summary.transactionCount}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="admindashboard-container">
+      <h2 className="dashboard-header">Admin Dashboard</h2>
+      {(!currentView || currentView === 'User-List') && (
+        <>
+          <h3 className="section-header">User List</h3>
+          <div className="table-wrapper">
+            <table className="user-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map(user => (
+                  <tr key={user.id}>
+                    <td>{user.username}</td>
+                    <td>{user.active ? 'Active' : 'Inactive'}</td>
+                    <td>
+                      <button
+                        onClick={() => handleToggleStatus(user.id, user.active)}
+                        className={user.active ? 'deactivate-button' : 'activate-button'}
+                        disabled={loading}
+                      >
+                        {user.active ? 'Deactivate' : 'Activate'}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+      {(!currentView || currentView === 'Payment-Summary') && (
+        <>
+          <h3 className="section-header">Payment Summary</h3>
+          <div className="table-wrapper">
+            <table className="payment-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Total Amount</th>
+                  <th>Transaction Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                {paymentSummary.map(summary => (
+                  <tr key={summary.username}>
+                    <td>{summary.username}</td>
+                    <td>${summary.totalAmount}</td>
+                    <td>{summary.transactionCount}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
     </div>
   );
 };
