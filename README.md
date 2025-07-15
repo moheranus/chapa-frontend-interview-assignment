@@ -1,4 +1,6 @@
+<img width="1918" height="897" alt="Screenshot 2025-07-15 131851" src="https://github.com/user-attachments/assets/0d97df20-d37e-48b7-956f-c70029f390d0" />
 Chapa Frontend Interview Assignment
+
 A role-based dashboard SPA built with React for a fictional Payment Service Provider platform.
 Features
 
